@@ -107,7 +107,7 @@ func main() {
 	store := NewParcelStore(db)
 	service := NewParcelService(store)
 
-	// регистрация посылки
+	// Регистрация посылки
 	client := 1
 	address := "Псков, д. Пушкина, ул. Колотушкина, д. 5"
 	p, err := service.Register(client, address)
@@ -116,7 +116,7 @@ func main() {
 		return
 	}
 
-	// изменение адреса
+	// Изменение адреса
 	newAddress := "Саратов, д. Верхние Зори, ул. Козлова, д. 25"
 	err = service.ChangeAddress(p.Number, newAddress)
 	if err != nil {
@@ -124,7 +124,7 @@ func main() {
 		return
 	}
 
-	// изменение статуса
+	// Изменение статуса
 	err = service.NextStatus(p.Number)
 	if err != nil {
 		fmt.Println(err)
